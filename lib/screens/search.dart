@@ -7,7 +7,7 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultTabController(
-        length: 5,
+        length: 7,
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverAppBar(
@@ -24,19 +24,25 @@ class SearchPage extends StatelessWidget {
               bottom: const TabBar(
                 tabs: [
                   Tab(
-                    text: 'all',
+                    text: 'Chats',
                   ),
                   Tab(
-                    text: 'contacts',
+                    text: 'Media',
                   ),
                   Tab(
-                    text: 'groups',
+                    text: 'Downloads',
                   ),
                   Tab(
-                    text: 'channels',
+                    text: 'Links',
                   ),
                   Tab(
-                    text: 'bots',
+                    text: 'Files',
+                  ),
+                  Tab(
+                    text: 'Music',
+                  ),
+                  Tab(
+                    text: 'Voice',
                   ),
                 ],
                 isScrollable: true,
@@ -50,40 +56,6 @@ class SearchPage extends StatelessWidget {
                   icon: const Icon(Icons.close),
                 ),
               ],
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  SizedBox(
-                    height: 100,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (context, index) => Container(
-                        width: 100,
-                        padding: const EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 15,
-                        ),
-                        child: Column(
-                          children: const [
-                            CircleAvatar(
-                              radius: 28,
-                              backgroundImage: NetworkImage(
-                                  'https://avatars.githubusercontent.com/u/33866360?v=4'),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text('name'),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ],
           body: CustomScrollView(
@@ -102,16 +74,18 @@ class SearchPage extends StatelessWidget {
                         top: 15,
                       ),
                       child: Column(
-                        children: const [
+                        children: [
                           CircleAvatar(
                             radius: 28,
                             backgroundImage: NetworkImage(
-                                'https://avatars.githubusercontent.com/u/33866360?v=4'),
+                              'https://i.pravatar.cc/100?img=$index',
+                              // 'https://avatars.githubusercontent.com/u/33866360?v=4'
+                            ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text('name'),
+                          const Text('name'),
                         ],
                       ),
                     ),
@@ -120,6 +94,7 @@ class SearchPage extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Container(
+                    height: 35,
                     decoration: BoxDecoration(
                       color: Colors.grey[400],
                     ),
@@ -133,9 +108,11 @@ class SearchPage extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                         Spacer(),
-                        Text(
-                          "Clear All",
-                          textAlign: TextAlign.end,
+                        TextButton(
+                          onPressed: null,
+                          child: Text(
+                            'Clear All',
+                          ),
                         ),
                       ],
                     )),
@@ -144,16 +121,18 @@ class SearchPage extends StatelessWidget {
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) => Column(
-                    children: const [
+                    children: [
                       ListTile(
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(
-                              'https://avatars.githubusercontent.com/u/33866360?v=4'),
+                            'https://i.pravatar.cc/100?img=$index',
+                            // 'https://avatars.githubusercontent.com/u/33866360?v=4'
+                          ),
                         ),
-                        title: Text('Seyed Ali Kamali Pargoo'),
-                        subtitle: Text('public channel'),
+                        title: const Text('Seyed Ali Kamali Pargoo'),
+                        subtitle: const Text('public channel'),
                       ),
-                      Divider(
+                      const Divider(
                         height: 1,
                         thickness: 0.5,
                         indent: 70,
