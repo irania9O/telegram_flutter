@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:telegram/screens/chat_list.dart';
 import 'package:telegram/screens/new_message.dart';
+import 'package:telegram/screens/search.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/new_message': (context) => const NewMessagePage(),
+          '/search': (context) => const SearchPage(),
         });
   }
 }
@@ -45,23 +47,14 @@ class _MainPageState extends State<MainPage> {
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverAppBar(
+              pinned: true,
+              floating: true,
+              snap: true,
               title: const Text("Telegram"),
               toolbarHeight: 60,
               // expandedHeight: 0,
               // collapsedHeight: 0,
-              floating: false,
-              actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.search),
-                ),
-              ],
-            ),
-            const SliverAppBar(
-              pinned: true,
-              toolbarHeight: 0,
-              automaticallyImplyLeading: false,
-              bottom: TabBar(
+              bottom: const TabBar(
                 tabs: [
                   Tab(
                     text: 'all',
@@ -88,6 +81,14 @@ class _MainPageState extends State<MainPage> {
                 indicatorSize: TabBarIndicatorSize.label,
                 labelStyle: TextStyle(fontSize: 16),
               ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/search');
+                  },
+                  icon: const Icon(Icons.search),
+                ),
+              ],
             ),
           ],
           body: const TabBarView(
