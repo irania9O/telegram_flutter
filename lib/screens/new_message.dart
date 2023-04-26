@@ -13,21 +13,8 @@ class NewMessagePage extends StatelessWidget {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             pinned: true,
-            title: Row(
-              children: const [
-                // CircleAvatar(
-                //   backgroundImage: NetworkImage(
-                //       'https://avatars.githubusercontent.com/u/33866360?v=4'),
-                // ),
-                // SizedBox(
-                //   width: 10,
-                // ),
-                Text("New Message"),
-              ],
-            ),
+            title: const Text("New Message"),
             toolbarHeight: 60,
-            // expandedHeight: 0,
-            // collapsedHeight: 0,
             floating: false,
             actions: [
               IconButton(
@@ -61,32 +48,31 @@ class NewMessagePage extends StatelessWidget {
               ],
             ),
           ),
-
-          // sliver Container with text sort by
           SliverToBoxAdapter(
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[400],
               ),
+              height: 35,
               margin: const EdgeInsets.only(top: 10),
-              padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+              padding: const EdgeInsets.only(left: 15, top: 10),
               child: const Text(
                 'Sorted by last seen time',
-                style: TextStyle(fontSize: 16),
               ),
             ),
           ),
-          // sliver divide
         ],
         body: ListView.builder(
           itemCount: 50,
-          itemBuilder: (context, index) => const ListTile(
+          itemBuilder: (context, index) => ListTile(
             leading: CircleAvatar(
               backgroundImage: NetworkImage(
-                  'https://avatars.githubusercontent.com/u/33866360?v=4'),
+                // 'https://avatars.githubusercontent.com/u/33866360?v=4'
+                'https://i.pravatar.cc/100?img=$index',
+              ),
             ),
-            title: Text('Seyed Ali Kamali Pargoo'),
-            subtitle: Text('last seen recently'),
+            title: const Text('Seyed Ali Kamali Pargoo'),
+            subtitle: const Text('last seen recently'),
             // trailing: const Icon(Icons.check_circle),
           ),
         ),
@@ -96,7 +82,7 @@ class NewMessagePage extends StatelessWidget {
           showModalBottomSheet(
             context: context,
             builder: (context) => SizedBox(
-              height: 320,
+              height: height / 1.5,
               child: Column(
                 children: [
                   const Padding(
@@ -148,6 +134,9 @@ class NewMessagePage extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(width - 40, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                     child: const Text('Create Contact'),
                   ),
