@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         darkTheme: ThemeData.dark(),
         theme: ThemeData.light(),
-        themeMode: ThemeMode.light,
-        // themeMode: ThemeMode.system,
+        // themeMode: ThemeMode.light,
+        themeMode: ThemeMode.system,
         home: const DefaultTabController(
           length: 5,
           child: MainPage(),
