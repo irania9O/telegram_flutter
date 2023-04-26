@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:telegram/screens/chat_list.dart';
 import 'package:telegram/screens/new_message.dart';
 import 'package:telegram/screens/search.dart';
@@ -193,7 +192,7 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {
           Navigator.pushNamed(context, '/new_message');
         },
-        child: Icon(PhosphorIcons.fill.pencil),
+        child: const Icon(Icons.edit),
       ),
     );
   }

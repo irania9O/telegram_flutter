@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -125,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: const Center(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(PhosphorIcons.fill.pencil),
+        child: const Icon(Icons.add),
       ),
     );
   }
