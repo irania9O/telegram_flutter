@@ -6,6 +6,9 @@ class NewMessagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -17,9 +20,9 @@ class NewMessagePage extends StatelessWidget {
                 //   backgroundImage: NetworkImage(
                 //       'https://avatars.githubusercontent.com/u/33866360?v=4'),
                 // ),
-                SizedBox(
-                  width: 10,
-                ),
+                // SizedBox(
+                //   width: 10,
+                // ),
                 Text("New Message"),
               ],
             ),
@@ -90,7 +93,70 @@ class NewMessagePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => SizedBox(
+              height: 320,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 15),
+                    child: ListTile(
+                      title: Text(
+                        'New Contact',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 15),
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'First Name',
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 15),
+                    child: ListTile(
+                      leading: Icon(Icons.person),
+                      title: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Last Name',
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 12, right: 15),
+                    child: ListTile(
+                      leading: Icon(Icons.phone),
+                      title: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Phone Number',
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(width - 40, 60),
+                    ),
+                    child: const Text('Create Contact'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
         child: const Icon(Icons.person_add),
       ),
     );
