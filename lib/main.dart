@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:telegram/screens/base.dart';
+import 'package:telegram/screens/chat_list.dart';
 import 'package:telegram/screens/new_message.dart';
 
 void main() {
@@ -92,11 +92,11 @@ class _MainPageState extends State<MainPage> {
           ],
           body: const TabBarView(
             children: [
-              Text('all'),
-              Text('contacts'),
-              Text('groups'),
-              Text('channels'),
-              Text('bots'),
+              ChatListPage(count: 20),
+              ChatListPage(count: 5),
+              ChatListPage(count: 10),
+              ChatListPage(count: 2),
+              ChatListPage(count: 7),
             ],
           ),
         ),
