@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class NewMessagePage extends StatelessWidget {
   const NewMessagePage({Key? key}) : super(key: key);
@@ -40,7 +39,7 @@ class NewMessagePage extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(PhosphorIcons.fill.sortAscending),
+                icon: const Icon(Icons.sort),
               ),
             ],
           ),
