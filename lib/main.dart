@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -46,23 +47,37 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Telegram"),
-          bottom: const TabBar(tabs: [
-            Tab(
-              text: 'all',
-            ),
-            Tab(
-              text: 'contacts',
-            ),
-            Tab(
-              text: 'groups',
-            ),
-            Tab(
-              text: 'channels',
-            ),
-            Tab(
-              text: 'bots',
-            ),
-          ]),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                text: 'all',
+              ),
+              Tab(
+                text: 'contacts',
+              ),
+              Tab(
+                text: 'groups',
+              ),
+              Tab(
+                text: 'channels',
+              ),
+              Tab(
+                text: 'bots',
+              ),
+            ],
+            isScrollable: true,
+            indicatorColor: Colors.white,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white70,
+            automaticIndicatorColorAdjustment: true,
+            // padding: EdgeInsets.only(bottom: 20),
+            indicatorWeight: 5,
+            indicatorSize: TabBarIndicatorSize.label,
+            // indicatorPadding: EdgeInsets.only(bottom: 20),
+            // overlayColor: MaterialStateProperty.all(Colors.red),
+            labelStyle: TextStyle(fontSize: 16),
+            // dragStartBehavior: DragStartBehavior.start,
+          ),
           actions: [
             IconButton(
               onPressed: () {},
