@@ -96,7 +96,7 @@ class _MainPageState extends State<MainPage> {
               ChatListPage(count: 5),
               ChatListPage(count: 10),
               ChatListPage(count: 2),
-              ChatListPage(count: 7),
+              ChatListPage(count: 10),
             ],
           ),
         ),
