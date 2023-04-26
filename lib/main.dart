@@ -33,14 +33,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  // int _selectedIndex = 0;
-  // final dynamic _pages = [
-  //   const Text('Home'),
-  //   const Text('Table'),
-  //   const Text('News'),
-  //   const Text('About'),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,10 +83,7 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.only(left: 0),
                 indicatorWeight: 5,
                 indicatorSize: TabBarIndicatorSize.label,
-                // indicatorPadding: EdgeInsets.only(bottom: 20),
-                // overlayColor: MaterialStateProperty.all(Colors.red),
                 labelStyle: TextStyle(fontSize: 16),
-                // dragStartBehavior: DragStartBehavior.start,
               ),
             ),
           ],
@@ -109,46 +98,6 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
-      // appBar: AppBar(
-      //   title: const Text("Telegram"),
-      //   bottom: const TabBar(
-      //     tabs: [
-      //       Tab(
-      //         text: 'all',
-      //       ),
-      //       Tab(
-      //         text: 'contacts',
-      //       ),
-      //       Tab(
-      //         text: 'groups',
-      //       ),
-      //       Tab(
-      //         text: 'channels',
-      //       ),
-      //       Tab(
-      //         text: 'bots',
-      //       ),
-      //     ],
-      //     isScrollable: true,
-      //     indicatorColor: Colors.white,
-      //     labelColor: Colors.white,
-      //     unselectedLabelColor: Colors.white70,
-      //     automaticIndicatorColorAdjustment: true,
-      //     // padding: EdgeInsets.only(bottom: 20),
-      //     indicatorWeight: 5,
-      //     indicatorSize: TabBarIndicatorSize.label,
-      //     // indicatorPadding: EdgeInsets.only(bottom: 20),
-      //     // overlayColor: MaterialStateProperty.all(Colors.red),
-      //     labelStyle: TextStyle(fontSize: 16),
-      //     // dragStartBehavior: DragStartBehavior.start,
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {},
-      //       icon: const Icon(Icons.search),
-      //     ),
-      //   ],
-      // ),
       drawer: Drawer(
           child: ListView(
         children: <Widget>[
@@ -240,15 +189,6 @@ class _MainPageState extends State<MainPage> {
         onPressed: () {},
         child: Icon(PhosphorIcons.fill.pencil),
       ),
-      // body: const TabBarView(
-      //   children: [
-      //     Text('all'),
-      //     Text('contacts'),
-      //     Text('groups'),
-      //     Text('channels'),
-      //     Text('bots'),
-      //   ],
-      //
     );
   }
 }
