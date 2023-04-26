@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:telegram/screens/base.dart';
+import 'package:telegram/screens/new_message.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,17 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      darkTheme: ThemeData.dark(),
-      theme: ThemeData.light(),
-      themeMode: ThemeMode.light,
-      // themeMode: ThemeMode.system,
-      home: const DefaultTabController(
-        length: 5,
-        child: MainPage(),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        darkTheme: ThemeData.dark(),
+        theme: ThemeData.light(),
+        themeMode: ThemeMode.light,
+        // themeMode: ThemeMode.system,
+        home: const DefaultTabController(
+          length: 5,
+          child: MainPage(),
+        ),
+        routes: {
+          '/new_message': (context) => const NewMessagePage(),
+        });
   }
 }
 
@@ -80,7 +84,6 @@ class _MainPageState extends State<MainPage> {
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.white70,
                 automaticIndicatorColorAdjustment: true,
-                padding: EdgeInsets.only(left: 0),
                 indicatorWeight: 5,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelStyle: TextStyle(fontSize: 16),
@@ -186,7 +189,9 @@ class _MainPageState extends State<MainPage> {
         ],
       )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/new_message');
+        },
         child: Icon(PhosphorIcons.fill.pencil),
       ),
     );
