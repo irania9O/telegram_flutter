@@ -62,16 +62,16 @@ class SearchPage extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(
                 child: SizedBox(
-                  height: 100,
+                  height: 90,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,
                     itemBuilder: (context, index) => Container(
-                      width: 100,
+                      width: 80,
                       padding: const EdgeInsets.only(
                         left: 10,
                         right: 10,
-                        top: 15,
+                        top: 10,
                       ),
                       child: Column(
                         children: [
@@ -83,7 +83,7 @@ class SearchPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           const Text('name'),
                         ],
@@ -96,22 +96,25 @@ class SearchPage extends StatelessWidget {
                 child: Container(
                     height: 35,
                     decoration: BoxDecoration(
-                      color: Colors.grey[400],
+                      color: Colors.grey.withOpacity(0.5),
                     ),
                     margin: const EdgeInsets.only(top: 5),
                     padding: const EdgeInsets.only(
                         left: 15, top: 10, bottom: 10, right: 15),
                     child: Row(
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Recent',
                           textAlign: TextAlign.start,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         TextButton(
-                          onPressed: null,
-                          child: Text(
+                          onPressed: () {},
+                          child: const Text(
                             'Clear All',
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
                       ],
