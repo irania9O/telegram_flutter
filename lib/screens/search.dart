@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -5,6 +7,8 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int randomInt = Random().nextInt(20);
+
     return Scaffold(
       body: DefaultTabController(
         length: 7,
@@ -13,8 +17,6 @@ class SearchPage extends StatelessWidget {
             SliverAppBar(
               pinned: true,
               toolbarHeight: 60,
-              backgroundColor: Colors.white,
-              iconTheme: const IconThemeData(color: Colors.black),
               title: const TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
@@ -78,7 +80,7 @@ class SearchPage extends StatelessWidget {
                           CircleAvatar(
                             radius: 28,
                             backgroundImage: NetworkImage(
-                              'https://i.pravatar.cc/100?img=$index',
+                              'https://i.pravatar.cc/100?img=${index + randomInt}',
                               // 'https://avatars.githubusercontent.com/u/33866360?v=4'
                             ),
                           ),
@@ -128,7 +130,7 @@ class SearchPage extends StatelessWidget {
                       ListTile(
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://i.pravatar.cc/100?img=$index',
+                            'https://i.pravatar.cc/100?img=${index + randomInt}',
                             // 'https://avatars.githubusercontent.com/u/33866360?v=4'
                           ),
                         ),

@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class NewMessagePage extends StatelessWidget {
@@ -7,6 +8,8 @@ class NewMessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    // generate a random int
+    int randomInt = Random().nextInt(20);
 
     return Scaffold(
       body: NestedScrollView(
@@ -62,19 +65,29 @@ class NewMessagePage extends StatelessWidget {
             ),
           ),
         ],
-        body: ListView.builder(
-          itemCount: 50,
-          itemBuilder: (context, index) => ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(
-                // 'https://avatars.githubusercontent.com/u/33866360?v=4'
-                'https://i.pravatar.cc/100?img=$index',
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: NetworkImage(
+                          'https://i.pravatar.cc/100?img=${index + randomInt}',
+                          // 'https://avatars.githubusercontent.com/u/33866360?v=4'
+                        ),
+                      ),
+                      title: const Text('Seyed Ali Kamali Pargoo'),
+                      subtitle: const Text('last seen recently'),
+                    ),
+                  ],
+                ),
+                childCount: 20,
               ),
             ),
-            title: const Text('Seyed Ali Kamali Pargoo'),
-            subtitle: const Text('last seen recently'),
-            // trailing: const Icon(Icons.check_circle),
-          ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

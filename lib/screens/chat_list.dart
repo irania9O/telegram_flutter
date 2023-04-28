@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ChatListPage extends StatelessWidget {
@@ -7,6 +8,8 @@ class ChatListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int randomInt = Random().nextInt(20);
+
     return CustomScrollView(
       slivers: [
         SliverList(
@@ -17,7 +20,7 @@ class ChatListPage extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 25,
                     backgroundImage: NetworkImage(
-                      'https://i.pravatar.cc/100?img=$index',
+                      'https://i.pravatar.cc/100?img=${index + randomInt}',
                       // 'https://avatars.githubusercontent.com/u/33866360?v=4'
                     ),
                   ),
@@ -46,7 +49,7 @@ class ChatListPage extends StatelessWidget {
                     ],
                   ),
                   title: const Text('Seyed Ali Kamali Pargoo'),
-                  subtitle: const Text('public channel'),
+                  subtitle: const Text('last message'),
                 ),
                 const Divider(
                   height: 1,
