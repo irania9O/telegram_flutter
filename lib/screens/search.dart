@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -8,6 +9,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int randomInt = Random().nextInt(20);
+    int randomInt2 = Random().nextInt(20);
 
     return Scaffold(
       body: DefaultTabController(
@@ -87,7 +89,10 @@ class SearchPage extends StatelessWidget {
                           const SizedBox(
                             height: 5,
                           ),
-                          const Text('name'),
+                          Text(
+                            faker.person.firstName(),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ],
                       ),
                     ),
@@ -130,11 +135,11 @@ class SearchPage extends StatelessWidget {
                       ListTile(
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(
-                            'https://i.pravatar.cc/100?img=${index + randomInt}',
+                            'https://i.pravatar.cc/100?img=${index + randomInt2}',
                             // 'https://avatars.githubusercontent.com/u/33866360?v=4'
                           ),
                         ),
-                        title: const Text('Seyed Ali Kamali Pargoo'),
+                        title: Text(faker.person.name()),
                         subtitle: const Text('public channel'),
                       ),
                       const Divider(

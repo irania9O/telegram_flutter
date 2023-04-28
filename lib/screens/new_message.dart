@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 class NewMessagePage extends StatelessWidget {
@@ -8,7 +9,6 @@ class NewMessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    // generate a random int
     int randomInt = Random().nextInt(20);
 
     return Scaffold(
@@ -79,7 +79,7 @@ class NewMessagePage extends StatelessWidget {
                           // 'https://avatars.githubusercontent.com/u/33866360?v=4'
                         ),
                       ),
-                      title: const Text('Seyed Ali Kamali Pargoo'),
+                      title: Text(faker.person.name()),
                       subtitle: const Text('last seen recently'),
                     ),
                   ],

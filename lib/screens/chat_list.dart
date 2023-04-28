@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 class ChatListPage extends StatelessWidget {
@@ -39,7 +40,7 @@ class ChatListPage extends StatelessWidget {
                         radius: 11,
                         backgroundColor: Colors.green[700],
                         child: Text(
-                          '${index + 1}',
+                          '${Random().nextInt(20)}',
                           style: const TextStyle(
                             fontSize: 12,
                             color: Colors.white,
@@ -48,7 +49,7 @@ class ChatListPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  title: const Text('Seyed Ali Kamali Pargoo'),
+                  title: Text(faker.person.name()),
                   subtitle: const Text('last message'),
                 ),
                 const Divider(
